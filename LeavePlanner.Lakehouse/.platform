@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Lakehouse",
+    "displayName": "LeavePlanner"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "408528e8-c69b-953d-4c85-d0e461ce982a"
+  }
+}

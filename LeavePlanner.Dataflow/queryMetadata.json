@@ -1,0 +1,34 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "LeavePlanner",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "DefaultDestination": {
+      "queryId": "6cb9a5bf-8031-417e-b814-7dbb2b2de0ad",
+      "queryName": "DefaultDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "Leave_Planner_120_Sample_Records": {
+      "queryId": "74e5bbbe-e924-4c04-8f83-861d5f9c4066",
+      "queryName": "Leave_Planner_120_Sample_Records",
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"5bbfde73-e374-428b-96da-fab3b7fb23df\",\"DatasourceId\":\"03e11d41-05f3-4e7b-a3a1-c966fbecdf02\"}"
+    },
+    {
+      "path": "https://ashutosh1-my.sharepoint.com/personal/ashutoshmishra_ashutosh1_onmicrosoft_com/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"5bbfde73-e374-428b-96da-fab3b7fb23df\",\"DatasourceId\":\"d8fbc221-664b-4b63-a720-7ad99c05715e\"}"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+expression 'DirectLake - LeavePlanner' =
+		let
+		    Source = AzureStorage.DataLake("https://onelake.dfs.fabric.microsoft.com/877ceed2-e2d3-4466-80c1-066dc39906d1/61ce982a-d0e4-4c85-953d-c69b408528e8", [HierarchicalNavigation=true])
+		in
+		    Source
+	lineageTag: 88217bd6-5202-43f8-977b-f1fa5814c865
+
+	annotation PBI_IncludeFutureArtifacts = False
+

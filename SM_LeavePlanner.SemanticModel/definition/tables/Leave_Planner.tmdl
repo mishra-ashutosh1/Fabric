@@ -1,0 +1,135 @@
+table Leave_Planner
+	lineageTag: a0cbe54d-084e-4bdc-b898-85089185cf17
+	sourceLineageTag: [dbo].[Leave_Planner_120_Sample_Records]
+
+	measure 'Total Leave Days' =
+			
+			SUM('leave_planner'[Duration Days])
+		formatString: 0
+		lineageTag: a944b680-a9e6-47d8-ba47-0bb384ce36ca
+
+		changedProperty = Name
+
+	measure 'Approved Leave Days' =
+			
+			CALCULATE(
+			    SUM('leave_planner'[Duration Days]),
+			    'leave_planner'[Status] = "Approved"
+			)
+		formatString: 0
+		lineageTag: 559d8611-1746-4a0e-bd94-e8e5947f122b
+
+		changedProperty = Name
+
+	measure 'Pending Leave Requests' =
+			
+			CALCULATE(
+			    COUNTROWS('leave_planner'),
+			    'leave_planner'[Status] = "Pending"
+			)
+		formatString: 0
+		lineageTag: 30d7db32-99f4-47ad-bc90-bfde69f029ae
+
+		changedProperty = Name
+
+	measure Employees =
+			
+			DISTINCTCOUNT('leave_planner'[Employee Name])
+		formatString: 0
+		lineageTag: a7f93960-21d6-4ff5-adaa-aefaf6a7f2b3
+
+		changedProperty = Name
+
+	column 'Employee Name'
+		dataType: string
+		lineageTag: b7ffa0ea-43e4-43a9-9885-9f9dd3b54f75
+		sourceLineageTag: Employee Name
+		summarizeBy: none
+		sourceColumn: Employee Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Employee ID'
+		dataType: string
+		lineageTag: a32496bd-cff1-4a7c-b03d-20bcae723b5e
+		sourceLineageTag: Employee ID
+		summarizeBy: none
+		sourceColumn: Employee ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Department
+		dataType: string
+		lineageTag: c3005dc1-c3f7-4129-8b09-83b7244e2e42
+		sourceLineageTag: Department
+		summarizeBy: none
+		sourceColumn: Department
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Leave Type'
+		dataType: string
+		lineageTag: 1640829c-556a-41a9-9767-9b7c7734d9b8
+		sourceLineageTag: Leave Type
+		summarizeBy: none
+		sourceColumn: Leave Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 462499c8-9c22-4699-adda-b06b6a61cac8
+		sourceLineageTag: Start Date
+		summarizeBy: none
+		sourceColumn: Start Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End Date'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ec9f605e-2fd0-434d-87e5-b43d2fd68fde
+		sourceLineageTag: End Date
+		summarizeBy: none
+		sourceColumn: End Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Duration Days'
+		dataType: int64
+		formatString: 0
+		lineageTag: 25db1a7e-b656-43eb-aa25-2a5157cc33a3
+		sourceLineageTag: Duration Days
+		summarizeBy: sum
+		sourceColumn: Duration Days
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 73536761-8ea1-4393-8d9b-05806b01673e
+		sourceLineageTag: Status
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Comments
+		dataType: string
+		lineageTag: 800d6c6c-401d-4d0c-a77c-1b3ad746d521
+		sourceLineageTag: Comments
+		summarizeBy: none
+		sourceColumn: Comments
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Leave_Planner = entity
+		mode: directLake
+		source
+			entityName: Leave_Planner_120_Sample_Records
+			schemaName: dbo
+			expressionSource: 'DirectLake - LeavePlanner'
+
+	changedProperty = Name
+

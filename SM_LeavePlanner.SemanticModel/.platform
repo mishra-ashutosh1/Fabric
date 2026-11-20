@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "SM_LeavePlanner"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "5bbdeef3-a8de-ae78-45a9-1a9189ce9616"
+  }
+}
